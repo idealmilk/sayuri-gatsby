@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 import { Container, HamburgerMenu, HeaderInner, Logo, Nav } from "./styled";
 import { Link } from "gatsby";
@@ -22,9 +21,9 @@ const Header = () => {
           <Link to="/">Matthew Gilligan</Link>
         </Logo>
         <Nav>
-          <AnchorLink to="#about" title="About" />
-          <AnchorLink to="#work" title="Work" />
-          <AnchorLink to="#contact" title="Contact" />
+          <a href="#about">About</a>
+          <a href="#about">About</a>
+          <a href="#about">About</a>
         </Nav>
 
         <HamburgerMenu>
