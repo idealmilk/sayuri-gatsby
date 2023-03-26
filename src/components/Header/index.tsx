@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+
 import { Container, HamburgerMenu, HeaderInner, Logo, Nav } from "./styled";
+import { Link } from "gatsby";
 
 const Header = () => {
   return (
@@ -15,17 +18,13 @@ const Header = () => {
       }}
     >
       <HeaderInner>
-        <Logo>Matthew Gilligan</Logo>
+        <Logo>
+          <Link to="/">Matthew Gilligan</Link>
+        </Logo>
         <Nav>
-          <li>
-            <a href="/#">Projects</a>
-          </li>
-          <li>
-            <a href="/#">About</a>
-          </li>
-          <li>
-            <a href="/#">Contact</a>
-          </li>
+          <AnchorLink to="#about" title="About" />
+          <AnchorLink to="#work" title="Work" />
+          <AnchorLink to="#contact" title="Contact" />
         </Nav>
 
         <HamburgerMenu>

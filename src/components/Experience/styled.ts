@@ -14,10 +14,17 @@ export const Container = styled(motion.div)`
 
     tr {
       height: 4rem;
+      border-bottom: 1px solid white;
 
       td {
         font-size: 2rem;
       }
     }
   }
+`;
+
+export const Divider = styled(motion.div)`
+  width: 100%;
+  height: 2px;
+  background: ${(props) => props.theme.colors.blue}:;
 `;

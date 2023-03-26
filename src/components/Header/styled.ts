@@ -11,6 +11,7 @@ export const Container = styled(motion.div)`
   padding: 0 10.8rem;
   font-size: 1.8rem;
   color: ${(props) => props.theme.colors.black};
+  z-index: 10000;
   @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
     padding: 0 7.2rem;
     font-size: 1.6rem;
@@ -34,10 +35,39 @@ export const HeaderInner = styled.div`
       flex: 4;
     }
   }
+
+  a {
+    position: relative;
+    margin: 0 40px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.black};
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: ${(props) => props.theme.colors.black};
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+      transform: scaleX(0);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
 `;
 
 export const Logo = styled.div`
-  font-size: 2rem;
+  a {
+    margin: 0;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -45,15 +75,8 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: center;
 
-  li {
-    list-style: none;
-    margin: 0 40px;
-    a {
-      font-size: 2rem;
-      text-decoration: none;
-      color: ${(props) => props.theme.colors.black};
-      white-space: nowrap;
-    }
+  a:last-of-type {
+    margin-right: 0;
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {

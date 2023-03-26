@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Container } from "./styled";
+import { Container, Divider } from "./styled";
 
 const Experience = () => {
   return (
@@ -13,11 +13,13 @@ const Experience = () => {
             <td>Freelance Developer</td>
             <td>2022 - </td>
           </tr>
+          <Divider as={motion.div} />
           <tr>
             <td>SciLeads</td>
             <td>Software Engineer</td>
             <td>2020 - 2022</td>
           </tr>
+          <Divider as={motion.div} />
         </tbody>
       </table>
     </Container>

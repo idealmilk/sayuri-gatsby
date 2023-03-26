@@ -19,10 +19,10 @@ export const TextWrap = styled(motion.div)`
 `;
 
 export const ImgWrap = styled.div`
-  width: 50%;
+  width: 35%;
   text-align: center;
   img {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
   }
 `;

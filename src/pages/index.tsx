@@ -47,8 +47,9 @@ const IndexPage: React.FC<PageProps> = () => {
       <Header />
       <Banner />
       <Navigation />
-      <Content id="main-container">
-        <Ticker text="About me" />
+      <Content>
+        <div id="about" />
+        <Ticker text="Unveiling Myself" />
         <InnerWrap>
           <ImgWrap>
             <img src={DisplayPic} alt="Matthew Gilligan" />
@@ -73,12 +74,16 @@ const IndexPage: React.FC<PageProps> = () => {
             </p>
           </TextWrap>
         </InnerWrap>
-        <InnerWrap>
+        <InnerWrap style={{ marginBottom: "20rem" }}>
           <Experience />
           <Spinner text="Blending functionality with aesthetics - " />
         </InnerWrap>
-        <Ticker text="Work" />
-        <Ticker text="Get in touch" />
+
+        <div id="work" />
+        <Ticker text="Frontend Virtuosity" />
+
+        <div id="contact" />
+        <Ticker text="Inquiries and Invective" />
         <InnerWrap style={{ marginBottom: "20rem" }}>
           <TextWrap>
             <p>
