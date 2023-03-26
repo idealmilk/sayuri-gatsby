@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,10 +8,14 @@ type DraggableProps = {
 };
 
 const Draggable = ({ image }: DraggableProps) => {
-  const [position, setPosition] = useState({
-    x: Math.random() * (window.innerWidth - 200),
-    y: Math.random() * (3 * window.innerHeight - 200),
-  });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    setPosition({
+      x: Math.random() * (window.innerWidth - 200),
+      y: Math.random() * (3 * window.innerHeight - 200),
+    });
+  }, []);
 
   const [{ x, y }, set] = useSpring(() => ({
     x: position.x,
