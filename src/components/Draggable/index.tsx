@@ -27,7 +27,7 @@ const Draggable = ({ image }: DraggableProps) => {
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1, delay: Math.random() * 1 }}
+      transition={{ duration: 1, delay: Math.random() * 1 + 1.6 }}
     >
       <AnimatePresence>
         <animated.img
