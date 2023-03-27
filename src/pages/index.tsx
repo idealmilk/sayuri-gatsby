@@ -17,19 +17,21 @@ import Title from "components/Title";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main style={{ minHeight: "300vh" }}>
-      <Draggable image={One} />
-      <Draggable image={Two} />
-      <Draggable image={Three} />
-      <Draggable image={Four} />
-      <Draggable image={Five} />
-      <Draggable image={Six} />
-      <Draggable image={Seven} />
-      <Draggable image={Eight} />
-      <Draggable image={Nine} />
-      <Draggable image={Ten} />
+    <>
       <Title />
-    </main>
+      <main style={{ minHeight: "300vh" }}>
+        <Draggable image={One} />
+        <Draggable image={Two} />
+        <Draggable image={Three} />
+        <Draggable image={Four} />
+        <Draggable image={Five} />
+        <Draggable image={Six} />
+        <Draggable image={Seven} />
+        <Draggable image={Eight} />
+        <Draggable image={Nine} />
+        <Draggable image={Ten} />
+      </main>
+    </>
   );
 };
 
