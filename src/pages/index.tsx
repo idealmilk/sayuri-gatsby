@@ -19,7 +19,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <>
       <Title />
-      <main style={{ minHeight: "300vh" }}>
+      <main style={{ minHeight: "calc(300vh) + 300px" }}>
         <Draggable image={One} />
         <Draggable image={Two} />
         <Draggable image={Three} />
