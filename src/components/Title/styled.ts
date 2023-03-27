@@ -15,4 +15,16 @@ export const Container = styled(motion.div)`
   h1 {
     font-size: 5rem;
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
 `;

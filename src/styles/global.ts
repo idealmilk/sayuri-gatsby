@@ -99,6 +99,12 @@ const GlobalStyles = styled.createGlobalStyle`
     clear: both;
   }
 
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    img {
+      width: 15rem !important;
+    }
+  }
+
   img {
     border: 0;
   }
