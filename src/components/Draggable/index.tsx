@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,23 +8,26 @@ type DraggableProps = {
 };
 
 const Draggable = ({ image }: DraggableProps) => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const ref = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    setPosition({
-      x: Math.random() * (window.innerWidth - 200),
-      y: Math.random() * (3 * window.innerHeight - 200),
-    });
+    if (typeof window !== "undefined") {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (3 * window.innerHeight - 200);
+      if (ref.current) {
+        ref.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+    }
   }, []);
 
   const [{ x, y }, set] = useSpring(() => ({
-    x: position.x,
-    y: position.y,
+    x: 0,
+    y: 0,
     config: { mass: 1, tension: 300, friction: 30 },
   }));
 
-  const bind = useDrag(({ offset: [dx, dy] }) => {
-    set({ x: position.x + dx, y: position.y + dy });
+  const bind = useDrag((params) => {
+    set({ x: params.offset[0], y: params.offset[1] });
   });
 
   return (
@@ -35,6 +38,7 @@ const Draggable = ({ image }: DraggableProps) => {
     >
       <AnimatePresence>
         <animated.img
+          ref={ref}
           src={image}
           alt="Draggable Image"
           style={{
