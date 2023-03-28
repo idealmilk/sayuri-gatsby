@@ -25,8 +25,8 @@ const Title = () => {
           </Card>
           <Card detail={true}>
             <h1 onClick={() => setIsFlipped(!isFlipped)}>Sayuri Murooka</h1>
-            <p>Sayuri Murooka is a Tokyo-based photographer.</p>
-            <p>She is represented by SIGNO.</p>
+            <p>Tokyo-based photographer</p>
+            <p>represented by SIGNO.</p>
 
             <Links>
               <a

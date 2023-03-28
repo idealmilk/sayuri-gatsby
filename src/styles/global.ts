@@ -99,9 +99,16 @@ const GlobalStyles = styled.createGlobalStyle`
     clear: both;
   }
 
+  img {
+  }
+
+  .react-draggable {
+    width: 30rem;
+  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    img {
-      width: 15rem !important;
+    .react-draggable {
+      width: 15rem;
     }
   }
 

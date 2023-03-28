@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import { motion, AnimatePresence } from "framer-motion";
+import { Resizable } from "re-resizable";
+import Draggable from "react-draggable";
 
 type DraggableProps = {
   image: string;
 };
 
-const Draggable = ({ image }: DraggableProps) => {
+const DraggableImage = ({ image }: DraggableProps) => {
   const ref = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -20,15 +22,27 @@ const Draggable = ({ image }: DraggableProps) => {
     }
   }, []);
 
-  const [{ x, y }, set] = useSpring(() => ({
-    x: 0,
-    y: 0,
-    config: { mass: 1, tension: 300, friction: 30 },
-  }));
+  // const ref = useRef<HTMLImageElement>(null);
 
-  const bind = useDrag((params) => {
-    set({ x: params.offset[0], y: params.offset[1] });
-  });
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const x = Math.random() * (window.innerWidth - 200);
+  //     const y = Math.random() * (3 * window.innerHeight - 200);
+  //     if (ref.current) {
+  //       ref.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  //     }
+  //   }
+  // }, []);
+
+  // const [{ x, y }, set] = useSpring(() => ({
+  //   x: 0,
+  //   y: 0,
+  //   config: { mass: 1, tension: 300, friction: 30 },
+  // }));
+
+  // const bind = useDrag((params) => {
+  //   set({ x: params.offset[0], y: params.offset[1] });
+  // });
 
   return (
     <motion.div
@@ -36,7 +50,7 @@ const Draggable = ({ image }: DraggableProps) => {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1, delay: Math.random() * 1 + 1.6 }}
     >
-      <AnimatePresence>
+      {/* <AnimatePresence>
         <animated.img
           ref={ref}
           src={image}
@@ -52,9 +66,22 @@ const Draggable = ({ image }: DraggableProps) => {
           draggable="false"
           {...bind()}
         />
-      </AnimatePresence>
+      </AnimatePresence> */}
+
+      <div ref={ref}>
+        <Draggable>
+          <Resizable
+            style={{
+              background: `url(${image})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+            lockAspectRatio={true}
+          ></Resizable>
+        </Draggable>
+      </div>
     </motion.div>
   );
 };
 
-export default Draggable;
+export default DraggableImage;
