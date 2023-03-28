@@ -7,9 +7,10 @@ import Draggable from "react-draggable";
 
 type DraggableProps = {
   image: string;
+  portrait?: boolean;
 };
 
-const DraggableImage = ({ image }: DraggableProps) => {
+const DraggableImage = ({ image, portrait }: DraggableProps) => {
   const ref = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -71,10 +72,15 @@ const DraggableImage = ({ image }: DraggableProps) => {
       <div ref={ref}>
         <Draggable>
           <Resizable
+            defaultSize={{
+              width: 300,
+              height: portrait ? 440 : 200,
+            }}
             style={{
               background: `url(${image})`,
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
+              margin: "0 !important",
             }}
             lockAspectRatio={true}
           ></Resizable>

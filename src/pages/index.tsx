@@ -27,10 +27,10 @@ const IndexPage: React.FC<PageProps> = () => {
         <DraggableImage image={Three} />
         <DraggableImage image={Four} />
         <DraggableImage image={Five} />
-        <DraggableImage image={Six} />
+        <DraggableImage image={Six} portrait={true} />
         <DraggableImage image={Seven} />
-        <DraggableImage image={Eight} />
-        <DraggableImage image={Nine} />
+        <DraggableImage image={Eight} portrait={true} />
+        <DraggableImage image={Nine} portrait={true} />
         <DraggableImage image={Ten} />
       </main>
     </>

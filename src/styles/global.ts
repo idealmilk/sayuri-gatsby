@@ -100,19 +100,6 @@ const GlobalStyles = styled.createGlobalStyle`
   }
 
   img {
-  }
-
-  .react-draggable {
-    width: 30rem;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    .react-draggable {
-      width: 15rem;
-    }
-  }
-
-  img {
     border: 0;
   }
 
